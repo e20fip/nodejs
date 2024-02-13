@@ -1,6 +1,10 @@
 require("dotenv").config()
 const { OpenAI } = require("openai")
 
+export const config = {
+  supportsResponseStreaming: true
+}
+
 const openai = new OpenAI({
   apiKey: process.env.API_KEY
 })
