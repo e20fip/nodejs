@@ -2,7 +2,7 @@ require("dotenv").config()
 const { OpenAI } = require("openai")
 
 export const config = {
-  supportsResponseStreaming: true
+  runtime: "edge"
 }
 
 const openai = new OpenAI({
