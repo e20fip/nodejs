@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module" defer></script>
+    <script src="showdown.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <title>API Sample</title>
+    <title>ChatGPT</title>
   </head>
   <body>
     <div id="main">
-      <h1>API Sample</h1>
+      <h1>GPT 3.5 turbo</h1>
+      <div class="output"></div>
+      <div class="input-container">
+        <input type="text" id="input" autocomplete="false" autofocus="true" />
+        <button id="send">send</button>
+        <button id="clear">clear</button>
+        <button id="new">new</button>
+      </div>
     </div>
   </body>
 </html>

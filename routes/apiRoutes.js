@@ -1,7 +1,7 @@
-const express = require('express')
+const express = require("express")
 const router = express.Router()
-const { apiFetch } = require('../controller/apiController')
+const { apiFetch } = require("../controller/apiController")
 
-router.route('/').get(apiFetch)
+router.route("/").post(apiFetch)
 
 module.exports = router

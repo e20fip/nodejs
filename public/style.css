@@ -4,8 +4,8 @@
   padding: 0;
 }
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 body {
   background-color: black;
@@ -16,5 +16,70 @@ body {
   min-height: 100vh;
 }
 #main {
-  margin-inline: 10em;
+  margin-inline: auto;
+  width: 100%;
+  height: 80vh;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5em;
+  background-color: rgb(44, 44, 44);
+  padding: 1.5em;
+}
+.output {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background-color: rgb(48, 48, 48);
+}
+.output ul,
+.output ol {
+  padding-bottom: 1rem;
+  list-style-position: inside;
+}
+pre {
+  background-color: rgb(109, 75, 201);
+  padding: 0.5rem;
+  overflow: auto;
+  margin-bottom: 1em;
+}
+ul p,
+ol p {
+  display: contents;
+}
+.output li {
+  padding-block: 1rem;
+}
+.output p,
+.output pre {
+  padding-bottom: 1rem;
+}
+.input-container {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  height: 1.5em;
+  width: 100%;
+  max-width: 80ch;
+  border: none;
+  padding: 1.2em;
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+input:focus {
+  outline: none;
+}
+button {
+  border: none;
+  background-color: brown;
+  padding: 7px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
 }
