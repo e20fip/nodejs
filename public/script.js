@@ -1,4 +1,5 @@
-const URL = "http://localhost:8000/api"
+//const URL = "http://localhost:8000/api"
+const URL = "https://nodejs-e20fip.vercel.app/api"
 
 const output = document.querySelector(".output")
 const input = document.getElementById("input")
