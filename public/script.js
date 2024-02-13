@@ -6,7 +6,7 @@ const input = document.getElementById("input")
 const send = document.getElementById("send")
 const clear = document.getElementById("clear")
 let converter = new showdown.Converter()
-const fetchAPI = async (text) => {
+const fetchAPI = async (msg) => {
   try {
     const resp = await fetch(URL, {
       method: "POST",
@@ -15,21 +15,37 @@ const fetchAPI = async (text) => {
       },
       body: JSON.stringify({
         datas: {
-          messages: text
+          messages: msg
         }
       })
     })
-    const datas = await resp.json()
-    output.innerHTML = converter.makeHtml(
-      datas.completion?.choices[0].message.content
-    )
+
+    const reader = resp.body.pipeThrough(new TextDecoderStream()).getReader()
+    let text = ""
+    while (true) {
+      const chunk = await reader.read()
+      const { done, value } = chunk
+      if (value !== undefined) {
+        text += value
+        output.innerHTML = converter.makeHtml(text)
+        output.scrollTop = output.offsetHeight
+      }
+      if (done) {
+        break
+      }
+    }
   } catch (err) {
     console.error(err)
+  } finally {
+    send.removeAttribute("disabled")
+    input.removeAttribute("disabled")
   }
 }
 send.addEventListener("click", () => {
   if (!input.value) return
-  fetchAPI(encodeURI(input.value))
+  send.setAttribute("disabled", "true")
+  input.setAttribute("disabled", "true")
+  fetchAPI(input.value)
 })
 clear.addEventListener("click", () => {
   input.value = ""
