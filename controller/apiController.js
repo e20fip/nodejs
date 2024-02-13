@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 const apiFetch = async (req, res) => {
   if (!req.body.datas.messages) return res.json({ message: "error" })
-  const messages = req.body.datas.messages
+  const messages = encodeURI(req.body.datas.messages)
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: messages }],

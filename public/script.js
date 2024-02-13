@@ -29,7 +29,7 @@ const fetchAPI = async (text) => {
 }
 send.addEventListener("click", () => {
   if (!input.value) return
-  fetchAPI(input.value)
+  fetchAPI(encodeURI(input.value))
 })
 clear.addEventListener("click", () => {
   input.value = ""
